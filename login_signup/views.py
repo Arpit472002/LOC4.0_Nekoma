@@ -87,5 +87,5 @@ class LoginView(generics.CreateAPIView):
             data['token'] = token
             data['user_id']=user.user_id
             data['username']=user.username
-            data['is_organizer']=my_user.is_organizer
+            data['is_organizer']=user.is_organizer
             return Response(data, status = status.HTTP_200_OK)

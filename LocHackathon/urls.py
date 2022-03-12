@@ -43,12 +43,15 @@ urlpatterns = [
     ###For created apps
     path('login-signup/',include('login_signup.urls')),
     path('eventapp/',include('event.urls')),
+    path('volunteer/',include('volunteer.urls')),
+    path('crowdfundingapp/',include('CrowdFunding.urls')),
     ###For Google Oauth
     path('', TemplateView.as_view(template_name="index.html")),
     path('accounts/', include('allauth.urls')),
     path('logout', LogoutView.as_view()),
     ###For Swagger
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    path('blogapp/',include('Blog.urls')),
 ]
 from django.conf import settings
 from django.conf.urls.static import static
