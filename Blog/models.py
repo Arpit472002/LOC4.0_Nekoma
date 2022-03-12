@@ -5,7 +5,7 @@ from login_signup.models import MyUser
 class Blog(models.Model):
     title=models.CharField(max_length=250)
     description=models.CharField(max_length=250)
-    postedby=models.ForeignKey(MyUser,on_delete=models.CASCADE)
+    postedby=models.CharField(max_length=250)
 
     def __str__(self):
         return self.title
