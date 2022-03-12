@@ -24,18 +24,19 @@ import { URL } from "../utils/api";
 export default function SignupForAdmin() {
   const [isLoading, setLoading] = useState(true);
 
-  const [age, setAge] = React.useState("");
-
-  const handleSeller = (event) => {
-    setAge(event.target.value);
-  };
-
+  const [organiser, setOrganiser] = React.useState("");
+  
   const [values, setValues] = useState({
     email: "",
     password: "",
     username: "",
     is_organizer:false
   });
+
+  const handleOrganiser = (event) => {
+    setOrganiser(event.target.value);
+  };
+
   const [showPassword1, setshowPassword1] = useState(false);
   const handleClickShowPassword1 = () => {
     setshowPassword1(!showPassword1);
@@ -81,7 +82,7 @@ export default function SignupForAdmin() {
             email: values.email,
             password: values.password,
             username: values.username,
-            is_organizer:values.is_organizer
+            is_organizer:organiser
           }),
           headers: {
             "Content-Type": "application/json",
@@ -199,14 +200,14 @@ export default function SignupForAdmin() {
                 <Select
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
-                  value={age}
+                  value={organiser}
                   label="Select"
                   color="success"
                   sx={{ maxWidth: 200 }}
-                  onChange={handleSeller}
+                  onChange={handleOrganiser}
                 >
-                  <MenuItem value={10}>Organiser</MenuItem>
-                  <MenuItem value={20}>User</MenuItem> 
+                  <MenuItem value={true}>Organiser</MenuItem>
+                  <MenuItem value={false}>User</MenuItem> 
                 </Select>
               </FormControl>
             </Box>

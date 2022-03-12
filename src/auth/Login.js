@@ -114,8 +114,11 @@ export default function Login() {
           );
           result = await result.json();
           console.log(result);
-          if (result.token) {
+          if (result.is_organizer="true") {
             history("/home");
+          }
+          if (result.is_organizer="false") {
+            history("/booking");
           }
         } catch (error) {
           console.log("Error" + error);
