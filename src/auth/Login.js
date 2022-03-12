@@ -168,13 +168,8 @@ export default function Login() {
                 }
               />
               {formik.touched.email && formik.errors.email ? (
-<<<<<<< HEAD
-                <p className="error">{formik.errors.email}</p>
-              ) : null}
-=======
               <p style={{color:"red"}}>{formik.errors.email}</p>
             ) : null}
->>>>>>> 4ad1f931d215b8bee6770e2c6cebbe1dbc43afc2
             </Grid>
             <Grid item xs={12}>
               <InputLabel htmlFor="password">Password</InputLabel>
@@ -210,13 +205,8 @@ export default function Login() {
                 }
               />
               {formik.touched.password && formik.errors.password ? (
-<<<<<<< HEAD
-                <p className="error">{formik.errors.password}</p>
-              ) : null}
-=======
               <p style={{color:"red"}}>{formik.errors.password}</p>
             ) : null}
->>>>>>> 4ad1f931d215b8bee6770e2c6cebbe1dbc43afc2
             </Grid>
             <Button
               type="submit"
