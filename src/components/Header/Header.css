@@ -1,5 +1,5 @@
 .btn {
-    background-color: #49ab9480;
+    background-color: #35386c75;
     font-family: "Source Serif 4", sans-serif;
     font-weight: 800;
     border: 3px solid transparent;
@@ -11,5 +11,4 @@
   
   .btn:hover {
     border-bottom: 3px solid black;
-    color: #B10A47;
   }

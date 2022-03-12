@@ -12,6 +12,8 @@ import NavbarLogin from './components/Header/NavbarLogin';
 import Navbar from './components/Header/Navbar';
 import NotFound from './components/NotFound';
 import Booking from "./interface/Organiser/Booking";
+import Crowdfunding from "./interface/User/Crowdfunding"
+import NavbarUser from "./components/Header/NavbarUser";
 
 function App() {
   return (
@@ -24,6 +26,7 @@ function App() {
         <Route path="*" element={<><NotFound/></>}></Route> 
         <Route exact path="/booking" element={<><Navbar/><Booking/></>}/>
         <Route exact path="/blog" element={<><Navbar/><Blog/></>}/>
+        <Route path="*" element={<><NotFound/></>}></Route> 
       </Routes>
     </Router>
     </div>
