@@ -175,7 +175,7 @@ export default function Login() {
                 }
               />
               {formik.touched.email && formik.errors.email ? (
-              <p className="error">{formik.errors.email}</p>
+              <p style={{color:"red"}}>{formik.errors.email}</p>
             ) : null}
             </Grid>
             <Grid item xs={12}>
@@ -212,7 +212,7 @@ export default function Login() {
                 }
               />
               {formik.touched.password && formik.errors.password ? (
-              <p className="error">{formik.errors.password}</p>
+              <p style={{color:"red"}}>{formik.errors.password}</p>
             ) : null}
             </Grid>
             <Button
@@ -222,7 +222,7 @@ export default function Login() {
               onClick={formik.handleSubmit}
               sx={{ ml: 2, mt: 2, mb: 1 }}
               style={{
-                backgroundColor: "#fb3b30",
+                backgroundColor: "#35386C",
                 color: "#888bd2",
                 fontWeight: "bold",
                 fontSize: "18px",

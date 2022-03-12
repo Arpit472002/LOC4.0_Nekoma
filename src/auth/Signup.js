@@ -218,7 +218,7 @@ export default function SignupForAdmin() {
             variant="contained"
             sx={{ mt: 2, mb: 1 }}
             style={{
-              backgroundColor: "#fb3b30",
+              backgroundColor: "#35386C",
               color: "#888bd2",
               fontWeight: "bold",
               fontSize: "18px",
