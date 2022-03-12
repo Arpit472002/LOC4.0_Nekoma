@@ -1,5 +1,49 @@
-import { Grid, Typography, Box, FilledInput, TextField } from "@mui/material";
+import {
+  Grid,
+  Typography,
+  Box,
+  FilledInput,
+  TextField,
+  Button,
+} from "@mui/material";
+import { useState } from "react";
+import { URL } from "../../utils/api";
 export default function Blog() {
+  const token = localStorage.getItem("token");
+  const name = localStorage.getItem("name");
+  console.log(token, name);
+
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  // const [postedby, setPostedby] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    createBlog();
+  };
+
+  async function createBlog() {
+    try {
+      let result = await fetch(URL + "blogapp/blog/", {
+        method: "POST",
+        body: JSON.stringify({
+          title: title,
+          description: description,
+          postedby: name,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          Authorization: `token ${token}`,
+        },
+      });
+      result = await result.json();
+      console.log(result);
+    } catch (error) {
+      console.log("Error" + error);
+    }
+  }
+
   return (
     <>
       <Typography variant="h4" textAlign="center">
@@ -21,7 +65,7 @@ export default function Blog() {
           >
             <Box
               component="form"
-              //onSubmit={handleSubmit}
+              onSubmit={handleSubmit}
               noValidate
               sx={{ mt: 3 }}
             >
@@ -38,9 +82,9 @@ export default function Blog() {
                     variant="outlined"
                     color="success"
                     autoComplete="title"
-                    //value={values.age}
+                    value={title}
                     fullWidth
-                    //onChange={handleChanges}
+                    onChange={(e) => setTitle(e.target.value)}
                     style={{ width: "250px" }}
                   />
                 </Grid>
@@ -57,17 +101,31 @@ export default function Blog() {
                     type="text"
                     name="blog"
                     variant="outlined"
-                    color="success"
-                    //value={values.age}
+                    color="primary"
+                    value={description}
                     fullWidth
                     multiline
                     rows={8}
                     column={10}
-                    //onChange={handleChanges}
+                    onChange={(e) => setDescription(e.target.value)}
                     style={{ width: "250px" }}
                   />
                 </Grid>
               </Grid>
+
+              <Button
+                type="submit"
+                variant="contained"
+                sx={{ ml: 14, mt: 2, mb: 1 }}
+                style={{
+                  backgroundColor: "#F36F8F",
+                  color: "white",
+                  fontWeight: "bold",
+                  fontSize: "18px",
+                }}
+              >
+                Save
+              </Button>
             </Box>
           </Grid>
         </div>

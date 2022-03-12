@@ -7,6 +7,7 @@ import {
 import Login from './auth/Login';
 import Signup from './auth/Signup';
 import Blog from './interface/Organiser/Blog';
+import Blog2 from './interface/User/Blog';
 import Home from "./components/UHome";
 import NavbarLogin from './components/Header/NavbarLogin';
 import NavbarOrganiser from './components/Header/NavbarOrganiser';
