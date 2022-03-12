@@ -142,14 +142,14 @@ const Navbar = () => {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             <div style={{ margin: "auto" }}>
-              <Link to="/crowdfundinguser">
+            <Link to="/booking">
+                <button className="btn" >Booking</button>
+              </Link>
+              <Link to="/crowdfundingorganiser">
                 <button className="btn">Crowdfunding</button>
               </Link>
               <Link to="/blogs">
                 <button className="btn">Blogs</button>
-              </Link>
-              <Link to="/events">
-                <button className="btn" >Events</button>
               </Link>
             </div>
           </Box>

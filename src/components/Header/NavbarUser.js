@@ -91,7 +91,7 @@ const Navbar = () => {
             component="div"
             sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
           >
-            <BiDonateHeart style={{ fontSize: "3rem", color: "black" }} />
+            <BiDonateHeart style={{ fontSize: "5rem", color: "black" }} />
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>

@@ -1,6 +1,4 @@
-import Cards from "../../components/Cards";
 import { Grid, Button, Typography, Box, FilledInput } from "@mui/material";
-// import "./Booking.css";
 import { useState } from "react";
 import { URL } from "../../utils/api";
 
@@ -147,9 +145,10 @@ export default function CrowdfundingOrganiser() {
               <Button
                 type="submit"
                 variant="contained"
-                sx={{ ml: 14, mt: 2, mb: 1 }}
+                // sx={{ ml: 14, mt: 2, mb: 1 }}
+                fullWidth
                 style={{
-                  backgroundColor: "#F36F8F",
+                  backgroundColor: "#ff6f00",
                   color: "white",
                   fontWeight: "bold",
                   fontSize: "18px",

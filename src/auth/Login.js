@@ -111,11 +111,11 @@ export default function Login() {
           console.log(result);
           if ((result.is_organizer = "true" && result.token)) {
             localStorage.setItem("token", result.token)
-            history("/home");
+            history("/crowdfundingorganiser");
           }
           if ((result.is_organizer = "false" && result.token)) {
             localStorage.setItem("token", result.token)
-            history("/booking");
+            history("/homeuser");
           }
         } catch (error) {
           console.log("Error" + error);

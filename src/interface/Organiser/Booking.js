@@ -305,9 +305,9 @@ export default function Booking() {
               <Button
                 type="submit"
                 variant="contained"
-                sx={{ ml: 14, mt: 2, mb: 1 }}
+                sx={{ ml: 14, mt: 2, mb: 4 }}
                 style={{
-                  backgroundColor: "#F36F8F",
+                  backgroundColor: "#ff6f00",
                   color: "white",
                   fontWeight: "bold",
                   fontSize: "18px",
