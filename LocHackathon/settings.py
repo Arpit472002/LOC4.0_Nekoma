@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'Blog',
     'phonenumber_field',
     'volunteer',
+    'CrowdFunding',
     
 ]
 
