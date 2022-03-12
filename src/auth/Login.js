@@ -111,10 +111,13 @@ export default function Login() {
           console.log(result);
           if ((result.is_organizer = "true")) {
             localStorage.setItem("token", result.token)
+            localStorage.setItem("user_id", result.user_id);
+            localStorage.setItem("name", result.username);
             history("/home");
           }
           if ((result.is_organizer = "false")) {
-            localStorage.setItem("token", result.token)
+            localStorage.setItem("token", result.token);
+            localStorage.setItem("user_id", result.user_id);
             history("/booking");
           }
         } catch (error) {
