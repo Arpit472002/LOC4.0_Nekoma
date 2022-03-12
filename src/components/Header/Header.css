@@ -1,0 +1,15 @@
+.btn {
+    background-color: #49ab9480;
+    font-family: "Source Serif 4", sans-serif;
+    font-weight: 800;
+    border: 3px solid transparent;
+    text-transform: uppercase;
+    padding: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  
+  .btn:hover {
+    border-bottom: 3px solid black;
+    color: #B10A47;
+  }
