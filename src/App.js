@@ -8,6 +8,7 @@ import Login from './auth/Login';
 import Signup from './auth/Signup';
 import Blog from './interface/Organiser/Blog';
 import Home from "./interface/User/UHome";
+import Blog2 from './interface/User/Blog';
 import NavbarLogin from './components/Header/NavbarLogin';
 import NavbarOrganiser from './components/Header/NavbarOrganiser';
 import NotFound from './components/NotFound';

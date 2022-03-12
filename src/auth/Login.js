@@ -18,7 +18,7 @@ import * as Yup from "yup";
 import "../App.css";
 import swal from "sweetalert2";
 import { URL } from "../utils/api";
-import './loginSignup.css'
+import "./loginSignup.css";
 
 export default function Login() {
   const [isLoading, setLoading] = useState(true);
@@ -110,16 +110,18 @@ export default function Login() {
           result = await result.json();
           console.log(result);
           if ((result.is_organizer = "true" && result.token)) {
-            localStorage.setItem("token", result.token)
+            localStorage.setItem("token", result.token);
             history("/crowdfundingorganiser");
           }
           if ((result.is_organizer = "false" && result.token)) {
-            localStorage.setItem("token", result.token)
+            localStorage.setItem("token", result.token);
+            localStorage.setItem("user_id", result.user_id);
+            localStorage.setItem("name", result.username);
             history("/homeuser");
           }
         } catch (error) {
           console.log("Error" + error);
-          swal.fire("Oopshbb!!", "Please enter valid credentials", "error");
+          swal.fire("Oops!!", "Please enter valid credentials", "error");
           setLoading(false);
         }
       }
@@ -129,103 +131,112 @@ export default function Login() {
 
   return (
     <>
-    <Grid container className="login-grid">
-      <Container
-        disableGutters
-        component={motion.div}
-        transition={{ type: "spring", stiffness: 40 }}
-        initial={{ x: "-100vw" }}
-        animate={{ x: 0 }}
-        maxWidth="xs"
-      >
-        <Typography component="h1" variant="h5" style={{ paddingTop: "80px" }}>
-          Login
-        </Typography>
-        <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
-          <Grid container spacing={2}>
-            <Grid item xs={12}>
-              <InputLabel htmlFor="email">Email</InputLabel>
-              <FilledInput
-                id="email"
-                label="Email"
-                autoFocus
-                required
-                type="email"
-                name="email"
-                variant="outlined"
-                color="success"
-                autoComplete="email"
-                value={formik.values.email}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                error={formik.touched.email && Boolean(formik.errors.email)}
-                helpertext={formik.touched.email && formik.errors.email}
+      <Grid container className="login-grid">
+        <Container
+          disableGutters
+          component={motion.div}
+          transition={{ type: "spring", stiffness: 40 }}
+          initial={{ x: "-100vw" }}
+          animate={{ x: 0 }}
+          maxWidth="xs"
+        >
+          <Typography
+            component="h1"
+            variant="h5"
+            style={{ paddingTop: "80px" }}
+          >
+            Login
+          </Typography>
+          <Box
+            component="form"
+            noValidate
+            onSubmit={handleSubmit}
+            sx={{ mt: 1 }}
+          >
+            <Grid container spacing={2}>
+              <Grid item xs={12}>
+                <InputLabel htmlFor="email">Email</InputLabel>
+                <FilledInput
+                  id="email"
+                  label="Email"
+                  autoFocus
+                  required
+                  type="email"
+                  name="email"
+                  variant="outlined"
+                  color="success"
+                  autoComplete="email"
+                  value={formik.values.email}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  error={formik.touched.email && Boolean(formik.errors.email)}
+                  helpertext={formik.touched.email && formik.errors.email}
+                  fullWidth
+                  endAdornment={
+                    <InputAdornment position="end">
+                      <MdEmail style={{ fontSize: "20px" }} />
+                    </InputAdornment>
+                  }
+                />
+                {formik.touched.email && formik.errors.email ? (
+                  <p style={{ color: "red" }}>{formik.errors.email}</p>
+                ) : null}
+              </Grid>
+              <Grid item xs={12}>
+                <InputLabel htmlFor="password">Password</InputLabel>
+                <FilledInput
+                  id="password"
+                  label="password"
+                  color="success"
+                  required
+                  type={values.showPassword ? "text" : "password"}
+                  name="password"
+                  variant="outlined"
+                  value={formik.values.password}
+                  onBlur={formik.handleBlur}
+                  onChange={formik.handleChange}
+                  fullWidth
+                  autoComplete="current-password"
+                  // onChange={handleChange("password")}
+                  endAdornment={
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={handleShowPassword}
+                        onMouseDown={handleMouseDownPassword}
+                        edge="end"
+                      >
+                        {values.showPassword ? (
+                          <MdVisibilityOff />
+                        ) : (
+                          <MdVisibility />
+                        )}
+                      </IconButton>
+                    </InputAdornment>
+                  }
+                />
+                {formik.touched.password && formik.errors.password ? (
+                  <p style={{ color: "red" }}>{formik.errors.password}</p>
+                ) : null}
+              </Grid>
+              <Button
+                type="submit"
                 fullWidth
-                endAdornment={
-                  <InputAdornment position="end">
-                    <MdEmail style={{ fontSize: "20px" }} />
-                  </InputAdornment>
-                }
-              />
-              {formik.touched.email && formik.errors.email ? (
-              <p style={{color:"red"}}>{formik.errors.email}</p>
-            ) : null}
+                variant="contained"
+                onClick={formik.handleSubmit}
+                sx={{ ml: 2, mt: 2, mb: 1 }}
+                style={{
+                  backgroundColor: "#ff6f00",
+                  color: "#002d12",
+                  fontWeight: "bold",
+                  fontSize: "18px",
+                }}
+              >
+                Login
+              </Button>
             </Grid>
-            <Grid item xs={12}>
-              <InputLabel htmlFor="password">Password</InputLabel>
-              <FilledInput
-                id="password"
-                label="password"
-                color="success"
-                required
-                type={values.showPassword ? "text" : "password"}
-                name="password"
-                variant="outlined"
-                value={formik.values.password}
-                onBlur={formik.handleBlur}
-                onChange={formik.handleChange}
-                fullWidth
-                autoComplete="current-password"
-                // onChange={handleChange("password")}
-                endAdornment={
-                  <InputAdornment position="end">
-                    <IconButton
-                      aria-label="toggle password visibility"
-                      onClick={handleShowPassword}
-                      onMouseDown={handleMouseDownPassword}
-                      edge="end"
-                    >
-                      {values.showPassword ? (
-                        <MdVisibilityOff />
-                      ) : (
-                        <MdVisibility />
-                      )}
-                    </IconButton>
-                  </InputAdornment>
-                }
-              />
-              {formik.touched.password && formik.errors.password ? (
-              <p style={{color:"red"}}>{formik.errors.password}</p>
-            ) : null}
-            </Grid>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              onClick={formik.handleSubmit}
-              sx={{ ml: 2, mt: 2, mb: 1 }}
-              style={{
-                backgroundColor: "#ff6f00",
-                color: "#002d12",
-                fontWeight: "bold",
-                fontSize: "18px",
-              }}
-            >
-              Login
-            </Button>
-          </Grid>
-        </Box>
-      </Container>
+          </Box>
+        </Container>
       </Grid>
     </>
   );
