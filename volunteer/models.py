@@ -25,10 +25,7 @@ TIME_CHOICES=(
 #is selected 
 #Aadhar Card Image
 class Volunteer(models.Model):
-    name=models.CharField(max_length=250)
-    age=models.IntegerField()
     phone_number=PhoneNumberField(null=False,blank=False,unique=True)
-    email=models.EmailField(null=False, blank=False,unique=True)
     event_name=models.ForeignKey(Event,on_delete=models.CASCADE)
     available_at=models.CharField(max_length=250,choices=TIME_CHOICES)
     is_selected=models.BooleanField(default=False)
