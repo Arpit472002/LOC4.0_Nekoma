@@ -1,10 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
+import Booking from "./interface/Organiser/Booking";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-     <h1>hello</h1>
+    <Router>
+        <Routes>
+          <Route exact path="/booking" element={<><Booking/></>}/>
+        </Routes>
+    </Router>
     </div>
   );
 }
