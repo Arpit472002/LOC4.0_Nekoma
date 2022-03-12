@@ -12,7 +12,7 @@ import NavbarLogin from './components/Header/NavbarLogin';
 import Navbar from './components/Header/Navbar';
 import NotFound from './components/NotFound';
 import Booking from "./interface/Organiser/Booking";
-import Crowdfunding from "./interface/User/Crowdfunding"
+import Events from "./interface/User/Events";
 import NavbarUser from "./components/Header/NavbarUser";
 
 function App() {
@@ -25,6 +25,7 @@ function App() {
          <Route path="/home/user" element={<><Home/></>}></Route>
         <Route path="*" element={<><NotFound/></>}></Route> 
         <Route exact path="/booking" element={<><Navbar/><Booking/></>}/>
+        <Route exact path="/events" element={<><NavbarUser/><Events/></>}/>
         <Route exact path="/blog" element={<><Navbar/><Blog/></>}/>
         <Route path="*" element={<><NotFound/></>}></Route> 
       </Routes>
