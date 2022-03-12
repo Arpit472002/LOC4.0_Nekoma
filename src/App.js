@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import Login from './auth/Login';
 import Signup from './auth/Signup';
+import Blog from './interface/Organiser/Blog';
 import Home from "./components/Home";
 import NavbarLogin from './components/Header/NavbarLogin';
 import Navbar from './components/Header/Navbar';
@@ -22,9 +23,10 @@ function App() {
         <Route exact path="/" element={<><NavbarLogin/><Signup/></>} />
         <Route exact path="/login" element={<><NavbarLogin/><Login /></>} />
         <Route path="/home" element={<><Navbar/><Home/></>}></Route>
-        <Route path="*" element={<><NotFound/></>}></Route> 
-        <Route exact path="/booking" element={<><Booking/></>}/>
         <Route exact path="/crowdfunding" element={<><NavbarUser/><Crowdfunding/></>}/>
+        <Route exact path="/booking" element={<><Navbar/><Booking/></>}/>
+        <Route exact path="/blog" element={<><Navbar/><Blog/></>}/>
+        <Route path="*" element={<><NotFound/></>}></Route> 
       </Routes>
     </Router>
     </div>

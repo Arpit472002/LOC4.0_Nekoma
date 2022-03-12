@@ -6,7 +6,8 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import { Link } from "react-router-dom";
-import { GiHamburgerMenu, GiMeditation } from "react-icons/gi";
+import { GiHamburgerMenu } from "react-icons/gi";
+import {BiDonateHeart} from 'react-icons/bi'
 import Container from "@mui/material/Container";
 import MenuItem from "@mui/material/MenuItem";
 import "./Header.css";
@@ -35,7 +36,7 @@ const NavbarLogin = () => {
             component="div"
             sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
           >
-            <GiMeditation style={{ fontSize: "3rem", color: "black" }} />
+            <BiDonateHeart style={{ fontSize: "3rem", color: "black" }} />
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
