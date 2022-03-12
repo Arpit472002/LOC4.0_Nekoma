@@ -1,0 +1,15 @@
+#input-img
+{
+    width: 150px;
+    height: 100px;
+    opacity: 0;
+   position: absolute;
+   z-index: -1;
+}
+label{
+    cursor: pointer;
+}
+.add-img-icon{
+  text-align: center !important;
+  display: inline-block;
+}

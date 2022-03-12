@@ -5,6 +5,8 @@ import {
   CardContent,
   CardActionArea,
 } from "@mui/material";
+import '../App.css';
+
 export default function Cards() {
   return (
     <>
@@ -20,17 +22,17 @@ export default function Cards() {
         marginTop="30px"
       >
         <Grid item xs={3} md={4} marginLeft="40px" marginRight="20px">
-          <Card>
+          <Card className="cards-hover">
             <CardContent><Typography fontSize="29px" textAlign="center"><span style={{color:"#35386C"}}>Seminar</span></Typography></CardContent>
           </Card>
         </Grid>
         <Grid item xs={3} md={4} marginLeft="20px" marginRight="20px">
-          <Card>
+          <Card className="cards-hover">
             <CardContent><Typography fontSize="29px" textAlign="center"><span style={{color:"#35386C"}}>Workshops</span></Typography></CardContent>
           </Card>
         </Grid>
         <Grid item xs={3} md={4} marginLeft="20px" marginRight="40px">
-          <Card>
+          <Card className="cards-hover">
             <CardContent><Typography fontSize="29px" textAlign="center"><span style={{color:"#35386C"}}>Awareness Drives</span></Typography></CardContent>
           </Card>
         </Grid>
