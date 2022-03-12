@@ -9,6 +9,7 @@ import Signup from './auth/Signup';
 import NavbarLogin from './components/Header/NavbarLogin';
 import Navbar from './components/Header/Navbar';
 import NotFound from './components/NotFound';
+import Booking from "./interface/Organiser/Booking";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/yoga" element={<><Navbar /><Yoga/></>}></Route>
         <Route path="/meditation" element={<><Navbar /><Meditation/></>}></Route>*/}
         <Route path="*" element={<><NotFound/></>}></Route> 
+        <Route exact path="/booking" element={<><Booking/></>}/>
       </Routes>
     </Router>
     </div>
