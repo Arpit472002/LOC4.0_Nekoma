@@ -1,15 +1,87 @@
 import Cards from "../../components/Cards";
 import { Grid, Button, Typography, Box, FilledInput } from "@mui/material";
-import {BiImageAdd} from 'react-icons/bi';
-import './Booking.css'
+import { BiImageAdd } from "react-icons/bi";
+import "./Booking.css";
+import { useState } from "react";
+import { URL } from "../../utils/api";
+import { useNavigate } from "react-router-dom";
 
 export default function Booking() {
+  const navigate = useNavigate();
+  const token = localStorage.getItem("token");
+  console.log(token);
+  const addIcon = {
+    width: "100px",
+    height: "100px",
+    display: "block",
+  };
 
-    const addIcon = {
-        width: '100px',
-        height: '100px',
-        display: 'block',
-    };
+  const [event_name, setEvent_name] = useState("");
+  const [event_description, setEvent_description] = useState("");
+  const [event_venue, setEvent_venue] = useState("");
+  const [event_date, setEvent_date] = useState("");
+  const [event_time, setEvent_time] = useState("");
+  const [event_duration, setEvent_duration] = useState("");
+  const [no_of_volunteers, setNo_of_volunteers] = useState("");
+
+  // const handleSubmit = async () =>{
+  //   let formField = new FormData()
+  //   formField.append('event_name', event_name);
+  //   formField.append('event_description', event_description);
+  //   if(event_image !== null){
+  //   formField.append('event_image', event_image);}
+  //   formField.append('event_venue', event_venue);
+
+  //   formField.append('event_date', event_date);
+  //   formField.append('event_time', event_time);
+  //   formField.append('event_duration', event_duration);
+  //   formField.append('no_of_volunteers', no_of_volunteers);
+
+  //   await axios.post({
+  //     // method: 'post',
+  //     url: URL + 'eventapp/event/',
+  //     data: formField
+  //   },
+  //   {
+  //     headers: {
+  //       'Authorization': `Basic ${token}`
+  //     }
+  //   }).then((response) => {
+  //     console.log(response.data)
+  //     navigate('/blog');
+  //   })
+  // }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    createEvent();
+  };
+
+  async function createEvent() {
+    try {
+      let result = await fetch(URL + "eventapp/event/", {
+        method: "POST",
+        body: JSON.stringify({
+          event_name: event_name,
+          event_description: event_description,
+          event_date: event_date,
+          event_time: event_time,
+          event_venue: event_venue,
+          event_duration: event_duration,
+          no_of_volunteers: no_of_volunteers,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          Authorization: "Token " + token,
+        },
+      });
+      result = await result.json();
+      console.log(result);
+    } catch (error) {
+      console.log("Error" + error);
+    }
+  }
+
   return (
     <>
       <Cards />
@@ -43,7 +115,7 @@ export default function Booking() {
             </Grid>
             <Box
               component="form"
-              //onSubmit={handleSubmit}
+              onSubmit={handleSubmit}
               noValidate
               sx={{ mt: 3 }}
             >
@@ -53,22 +125,22 @@ export default function Booking() {
                 </Grid>
                 <Grid item sm={6} md={3} style={{ marginLeft: "15px" }}>
                   <FilledInput
-                    id="eventName"
+                    id="event_name"
                     label="Event Name"
                     type="text"
-                    name="eventName"
+                    name="event_name"
                     variant="outlined"
                     color="primary"
-                    autoComplete="eventName"
-                    //value={values.age}
+                    autoComplete="event_name"
+                    value={event_name}
                     fullWidth
-                    //onChange={handleChanges}
+                    onChange={(e) => setEvent_name(e.target.value)}
                     style={{ width: "250px" }}
                   />
                 </Grid>
               </Grid>
 
-              <Grid container direction="row" marginBottom={5}>
+              {/* <Grid container direction="row" marginBottom={5}>
                 <Grid item sm={6} md={3} style={{ marginLeft: "46px" }}>
                   <Typography>Upload Image</Typography>
                 </Grid>
@@ -86,18 +158,18 @@ export default function Booking() {
                       marginLeft: "15px",
                     }}
                   >
-                    <label htmlFor="input-img">
+                    <label htmlFor="event_image">
                       <BiImageAdd style={addIcon} />
                     </label>
                     <input
                       type="file"
-                      name="image"
-                      //onChange={(e)=>setImage(e.target.files[0])}
-                      id="input-img"
+                      name="event_image"
+                      onChange={(e) => setEvent_image(e.target.files[0])}
+                      id="event_image"
                     />
                   </Box>
                 </Grid>
-              </Grid>
+              </Grid> */}
 
               <Grid container direction="row" marginBottom={5}>
                 <Grid item sm={6} md={3} style={{ marginLeft: "46px" }}>
@@ -105,17 +177,17 @@ export default function Booking() {
                 </Grid>
                 <Grid item sm={6} md={3} style={{ marginLeft: "15px" }}>
                   <FilledInput
-                    id="eventDescription"
+                    id="event_description"
                     label="Event Description"
                     required
                     type="text"
-                    name="eventDescription"
+                    name="event_description"
                     variant="outlined"
                     color="primary"
-                    autoComplete="eventDescription"
-                    //value={values.gender}
+                    autoComplete="event_description"
+                    value={event_description}
                     fullWidth
-                    //onChange={handleChanges}
+                    onChange={(e) => setEvent_description(e.target.value)}
                     style={{ width: "250px" }}
                   />
                 </Grid>
@@ -127,17 +199,17 @@ export default function Booking() {
                 </Grid>
                 <Grid item sm={6} md={3} style={{ marginLeft: "15px" }}>
                   <FilledInput
-                    id="eventVenue"
+                    id="event_venue"
                     label="Event Venue"
                     required
                     type="text"
-                    name="eventVenue"
+                    name="event_venue"
                     variant="outlined"
                     color="primary"
-                    autoComplete="eventVenue"
-                    //value={values.github_link}
+                    autoComplete="event_venue"
+                    value={event_venue}
                     fullWidth
-                    //onChange={handleChanges}
+                    onChange={(e) => setEvent_venue(e.target.value)}
                     style={{ width: "250px" }}
                   />
                 </Grid>
@@ -149,18 +221,18 @@ export default function Booking() {
                 </Grid>
                 <Grid item sm={6} md={3} style={{ marginLeft: "15px" }}>
                   <FilledInput
-                    id="date"
-                    label="date"
+                    id="event_date"
+                    label="event_date"
                     required
                     type="text"
                     placeholder="yyyy-mmm-dd"
-                    name="date"
+                    name="event_date"
                     variant="outlined"
                     color="primary"
-                    autoComplete="date"
-                    //value={values.stack}
+                    autoComplete="event_date"
+                    value={event_date}
                     fullWidth
-                    //onChange={handleChanges}
+                    onChange={(e) => setEvent_date(e.target.value)}
                     style={{ width: "250px" }}
                   />
                 </Grid>
@@ -172,17 +244,17 @@ export default function Booking() {
                 </Grid>
                 <Grid item sm={6} md={3} style={{ marginLeft: "15px" }}>
                   <FilledInput
-                    id="time"
-                    label="time"
+                    id="event_time"
+                    label="event_time"
                     required
                     type="time"
-                    name="experience"
+                    name="event_time"
                     variant="outlined"
                     color="primary"
-                    autoComplete="time"
-                    //value={values.time}
+                    autoComplete="event_time"
+                    value={event_time}
                     fullWidth
-                    //onChange={handleChanges}
+                    onChange={(e) => setEvent_time(e.target.value)}
                     style={{ width: "250px" }}
                   />
                 </Grid>
@@ -194,18 +266,18 @@ export default function Booking() {
                 </Grid>
                 <Grid item sm={6} md={3} style={{ marginLeft: "15px" }}>
                   <FilledInput
-                    id="duration"
-                    label="duration"
+                    id="event_duration"
+                    label="event_duration"
                     required
                     type="number"
-                    name="duration"
+                    name="event_duration"
                     variant="outlined"
                     color="primary"
-                    autoComplete="duration"
-                    //value={values.description}
+                    autoComplete="event_duration"
+                    value={event_duration}
                     fullWidth
                     multiline
-                    //onChange={handleChanges}
+                    onChange={(e) => setEvent_duration(e.target.value)}
                     style={{ width: "250px" }}
                   />
                 </Grid>
@@ -213,21 +285,21 @@ export default function Booking() {
 
               <Grid container direction="row" marginBottom={5}>
                 <Grid item sm={6} md={3} style={{ marginLeft: "46px" }}>
-                  <Typography>Volunteers Required</Typography>
+                  <Typography>Number of Volunteers Required</Typography>
                 </Grid>
                 <Grid item sm={6} md={3} style={{ marginLeft: "15px" }}>
                   <FilledInput
-                    id="volunteers"
-                    label="volunteers"
+                    id="no_of_volunteers"
+                    label="no_of_volunteers"
                     required
-                    type="text"
-                    name="volunteers"
+                    type="number"
+                    name="no_of_volunteers"
                     variant="outlined"
                     color="primary"
-                    autoComplete="volunteers"
-                    //value={values.projects}
+                    autoComplete="no_of_volunteers"
+                    value={no_of_volunteers}
                     fullWidth
-                    //onChange={handleChanges}
+                    onChange={(e) => setNo_of_volunteers(e.target.value)}
                     style={{ width: "250px" }}
                   />
                 </Grid>

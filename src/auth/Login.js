@@ -15,9 +15,10 @@ import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import "../App.css"
-import swal from 'sweetalert2';
+import "../App.css";
+import swal from "sweetalert2";
 import { URL } from "../utils/api";
+import './loginSignup.css'
 
 export default function Login() {
   const [isLoading, setLoading] = useState(true);
@@ -53,20 +54,17 @@ export default function Login() {
   async function createacc() {
     console.log("hello");
     try {
-      let result = await fetch(
-        URL+ "login-signup/login/",
-        {
-          method: "POST",
-          body: JSON.stringify({
-            email: values.email,
-            password: values.password,
-          }),
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-        }
-      );
+      let result = await fetch(URL + "login-signup/login/", {
+        method: "POST",
+        body: JSON.stringify({
+          email: values.email,
+          password: values.password,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      });
       result = await result.json();
       console.log(result);
       if (result.token) {
@@ -78,7 +76,7 @@ export default function Login() {
       setLoading(false);
     }
   }
-  
+
   const handleShowPassword = () => {
     console.log(setValues);
     setValues({ ...values, showPassword: !values.showPassword });
@@ -98,31 +96,30 @@ export default function Login() {
       async function createacc() {
         console.log("hello");
         try {
-          let result = await fetch(
-            URL + "login-signup/login/",
-            {
-              method: "POST",
-              body: JSON.stringify({
-                email: values.email,
-                password: values.password,
-              }),
-              headers: {
-                "Content-Type": "application/json",
-                Accept: "application/json",
-              },
-            }
-          );
+          let result = await fetch(URL + "login-signup/login/", {
+            method: "POST",
+            body: JSON.stringify({
+              email: values.email,
+              password: values.password,
+            }),
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+          });
           result = await result.json();
           console.log(result);
-          if (result.is_organizer="true") {
+          if ((result.is_organizer = "true")) {
+            localStorage.setItem("token", result.token)
             history("/home");
           }
-          if (result.is_organizer="false") {
+          if ((result.is_organizer = "false")) {
+            localStorage.setItem("token", result.token)
             history("/booking");
           }
         } catch (error) {
           console.log("Error" + error);
-          swal.fire("Oops!!", "Please enter valid credentials", "error");
+          swal.fire("Oopshbb!!", "Please enter valid credentials", "error");
           setLoading(false);
         }
       }
@@ -132,6 +129,7 @@ export default function Login() {
 
   return (
     <>
+    <Grid container className="login-grid">
       <Container
         disableGutters
         component={motion.div}
@@ -143,12 +141,7 @@ export default function Login() {
         <Typography component="h1" variant="h5" style={{ paddingTop: "80px" }}>
           Login
         </Typography>
-        <Box
-          component="form"
-          noValidate
-          onSubmit={handleSubmit}
-          sx={{ mt: 1 }}
-        >
+        <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <InputLabel htmlFor="email">Email</InputLabel>
@@ -175,8 +168,8 @@ export default function Login() {
                 }
               />
               {formik.touched.email && formik.errors.email ? (
-              <p className="error">{formik.errors.email}</p>
-            ) : null}
+                <p className="error">{formik.errors.email}</p>
+              ) : null}
             </Grid>
             <Grid item xs={12}>
               <InputLabel htmlFor="password">Password</InputLabel>
@@ -212,8 +205,8 @@ export default function Login() {
                 }
               />
               {formik.touched.password && formik.errors.password ? (
-              <p className="error">{formik.errors.password}</p>
-            ) : null}
+                <p className="error">{formik.errors.password}</p>
+              ) : null}
             </Grid>
             <Button
               type="submit"
@@ -233,6 +226,7 @@ export default function Login() {
           </Grid>
         </Box>
       </Container>
+      </Grid>
     </>
   );
 }
