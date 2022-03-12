@@ -43,6 +43,7 @@ urlpatterns = [
     ###For created apps
     path('login-signup/',include('login_signup.urls')),
     path('eventapp/',include('event.urls')),
+    path('volunteer/',include('volunteer.urls')),
     ###For Google Oauth
     path('', TemplateView.as_view(template_name="index.html")),
     path('accounts/', include('allauth.urls')),

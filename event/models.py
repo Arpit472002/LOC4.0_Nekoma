@@ -10,6 +10,6 @@ class Event(models.Model):
     event_time=models.TimeField()
     event_duration=models.IntegerField()
     no_of_volunteers=models.IntegerField()
-
+    need_crowdfunding=models.BooleanField(default=False)
     def __str__(self):
         return self.event_name
