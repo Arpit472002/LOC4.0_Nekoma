@@ -33,7 +33,8 @@ class Registration(generics.CreateAPIView):
                 token = Token.objects.get(user = my_user).key
                 data['old_token']=token
                 data['username']=my_user.username
-                current_site = 'https://new-nekoma-project.herokuapp.com'
+                data['is_organizer']=my_user.is_organizer
+                current_site = 'https://lend-a-hand472.herokuapp.com'
                 relative_link = reverse('verifyEmail')          
                 absurl = current_site + relative_link + "?token="+str(token) 
                 email_body = 'Hi ' + my_user.username + ' Use link below to verify your email \n' + absurl  
@@ -86,4 +87,5 @@ class LoginView(generics.CreateAPIView):
             data['token'] = token
             data['user_id']=user.user_id
             data['username']=user.username
+            data['is_organizer']=my_user.is_organizer
             return Response(data, status = status.HTTP_200_OK)
