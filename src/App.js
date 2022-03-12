@@ -9,11 +9,13 @@ import Signup from './auth/Signup';
 import Blog from './interface/Organiser/Blog';
 import Home from "./components/UHome";
 import NavbarLogin from './components/Header/NavbarLogin';
-import Navbar from './components/Header/Navbar';
+import NavbarOrganiser from './components/Header/NavbarOrganiser';
 import NotFound from './components/NotFound';
 import Booking from "./interface/Organiser/Booking";
-import Crowdfunding from "./interface/User/Crowdfunding"
+import Events from "./interface/User/Events";
 import NavbarUser from "./components/Header/NavbarUser";
+import CrowdfundingUser from './interface/User/CrowdfundingUser';
+import CrowdfundingOrganiser from './interface/Organiser/CrowdfundingOrganiser';
 
 function App() {
   return (
@@ -23,9 +25,11 @@ function App() {
         <Route exact path="/" element={<><NavbarLogin/><Signup/></>} />
         <Route exact path="/login" element={<><NavbarLogin/><Login /></>} />
          <Route path="/home/user" element={<><Home/></>}></Route>
-        <Route path="*" element={<><NotFound/></>}></Route> 
-        <Route exact path="/booking" element={<><Navbar/><Booking/></>}/>
-        <Route exact path="/blog" element={<><Navbar/><Blog/></>}/>
+        <Route exact path="/booking" element={<><NavbarOrganiser/><Booking/></>}/>
+        <Route exact path="/blogs" element={<><NavbarOrganiser/><Blog/></>}/>
+        <Route exact path="/crowdfundingorganiser" element={<><NavbarOrganiser/><CrowdfundingOrganiser/></>}/>
+        <Route exact path="/events" element={<><NavbarUser/><Events/></>}/>
+        <Route exact path="/crowdfundinguser" element={<><NavbarUser/><CrowdfundingUser/></>}/>
         <Route path="*" element={<><NotFound/></>}></Route> 
       </Routes>
     </Router>

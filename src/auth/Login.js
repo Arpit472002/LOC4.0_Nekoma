@@ -109,11 +109,11 @@ export default function Login() {
           });
           result = await result.json();
           console.log(result);
-          if ((result.is_organizer = "true")) {
+          if ((result.is_organizer = "true" && result.token)) {
             localStorage.setItem("token", result.token)
             history("/home");
           }
-          if ((result.is_organizer = "false")) {
+          if ((result.is_organizer = "false" && result.token)) {
             localStorage.setItem("token", result.token)
             history("/booking");
           }
@@ -215,8 +215,8 @@ export default function Login() {
               onClick={formik.handleSubmit}
               sx={{ ml: 2, mt: 2, mb: 1 }}
               style={{
-                backgroundColor: "#35386C",
-                color: "#888bd2",
+                backgroundColor: "#ff6f00",
+                color: "#002d12",
                 fontWeight: "bold",
                 fontSize: "18px",
               }}

@@ -1,5 +1,5 @@
 .btn {
-    background-color: #35386c75;
+    background-color:rgb(255 111 0 / 28%);
     font-family: "Source Serif 4", sans-serif;
     font-weight: 800;
     border: 3px solid transparent;
@@ -7,8 +7,9 @@
     padding: 10px;
     font-size: 1.2rem;
     cursor: pointer;
+    margin-top: 10px;
   }
   
   .btn:hover {
-    border-bottom: 3px solid black;
+    border-bottom: 3.5px solid black;
   }

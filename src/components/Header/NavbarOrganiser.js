@@ -14,7 +14,7 @@ import ListItemText from "@mui/material/ListItemText";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 import Drawer from "@mui/material/Drawer";
 import Button from "@mui/material/Button";
-import { BiDonateHeart } from 'react-icons/bi'
+import {BiDonateHeart} from 'react-icons/bi'
 import "./Header.css";
 
 const Navbar = () => {
@@ -62,7 +62,7 @@ const Navbar = () => {
             </ListItemText>
           </ListItem>
         </Link>
-        {["CrowdfundingUser", "Volunteer", "Maps"].map((text, index) => (
+        {["CrowdfundingOrganiser", "Blogs", "Events"].map((text, index) => (
           <Link className="mobileDrawer" to={`/${text.toLowerCase()}`} style={{textDecoration:"none"}}>
             <ListItem button key={text} >
               <ListItemIcon>
@@ -91,7 +91,7 @@ const Navbar = () => {
             component="div"
             sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
           >
-            <BiDonateHeart style={{ fontSize: "3rem", color: "black" }} />
+            <BiDonateHeart style={{ fontSize: "5rem", color: "black" }} />
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -145,11 +145,11 @@ const Navbar = () => {
               <Link to="/crowdfundinguser">
                 <button className="btn">Crowdfunding</button>
               </Link>
-              <Link to="/volunteer">
-                <button className="btn">Volunteer</button>
+              <Link to="/blogs">
+                <button className="btn">Blogs</button>
               </Link>
-              <Link to="/maps">
-                <button className="btn" >Maps</button>
+              <Link to="/events">
+                <button className="btn" >Events</button>
               </Link>
             </div>
           </Box>
