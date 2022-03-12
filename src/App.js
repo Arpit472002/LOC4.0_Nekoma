@@ -7,8 +7,8 @@ import {
 import Login from './auth/Login';
 import Signup from './auth/Signup';
 import Blog from './interface/Organiser/Blog';
+import UserBlog from './interface/User/UserBlog';
 import Home from "./interface/User/UHome";
-import Blog2 from './interface/User/Blog';
 import NavbarLogin from './components/Header/NavbarLogin';
 import NavbarOrganiser from './components/Header/NavbarOrganiser';
 import NotFound from './components/NotFound';
@@ -28,6 +28,7 @@ function App() {
          <Route path="/homeuser" element={<><NavbarUser/><Home/></>}></Route>
         <Route exact path="/booking" element={<><NavbarOrganiser/><Booking/></>}/>
         <Route exact path="/blogs" element={<><NavbarOrganiser/><Blog/></>}/>
+        <Route exact path="/userblog" element={<><NavbarUser/><UserBlog/></>}/>
         <Route exact path="/crowdfundingorganiser" element={<><NavbarOrganiser/><CrowdfundingOrganiser/></>}/>
         <Route exact path="/events" element={<><NavbarUser/><Events/></>}/>
         <Route exact path="/crowdfundinguser" element={<><NavbarUser/><CrowdfundingUser/></>}/>
