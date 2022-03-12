@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import { Grid, Box } from "@mui/material";
+import { Grid, Box, Button } from "@mui/material";
 import { URL } from "../../utils/api";
 
-export default function Events() {
+export default function CrowdfundingUser() {
   const [card, setCard] = useState([]);
   const token = localStorage.getItem("token");
   console.log(token);
@@ -13,7 +13,7 @@ export default function Events() {
     (async () => {
       let posts;
       try {
-        let response = await fetch(URL + "eventapp/event/", {
+        let response = await fetch(URL + "crowdfundingapp/crowdfunding/", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -63,26 +63,36 @@ export default function Events() {
                     data-aos-anchor-placement="bottom-bottom"
                   >
                     <CardContent>
-                    <Typography
+                      <Typography
                         style={{ color: "black" }}
                         gutterBottom
                         variant="h6"
                         component="div"
-                      >
-                        {post.event_date}
-                        </Typography>
+                      >Description :{" "}
+                        {post.description}
+                      </Typography>
                       <Typography
                         style={{ color: "black" }}
                         gutterBottom
                         variant="h5"
                         component="div"
-                      >
-                        {post.event_duration} hr<br/>
-                        {post.event_name}<br/>
-                        {post.event_time}<br/>
-                        {post.event_venue}<br/>
+                      >Reason : {" "}
+                        {post.reason} hr
+                        <br />
                       </Typography>
-                      <Typography style={{color:"red"}}>{post.event_description}</Typography>
+                      <Typography>Amount:</Typography>
+                      <Typography style={{ color: "red" }}>
+                        {post.total_amount_needed}
+                      </Typography>
+                      <a
+                        href="https://rzp.io/l/1GpMHVP"
+                        target="_/blank"
+                        style={{ textDecoration: "none", fontSize:"2rem" }}
+                      >
+                        <Button size="small" color="primary">
+                          Donate    
+                        </Button>
+                      </a>
                     </CardContent>
                   </Card>
                 </Grid>
