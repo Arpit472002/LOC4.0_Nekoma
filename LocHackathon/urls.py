@@ -45,6 +45,8 @@ urlpatterns = [
     path('eventapp/',include('event.urls')),
     path('volunteer/',include('volunteer.urls')),
     path('crowdfundingapp/',include('CrowdFunding.urls')),
+    path('faqsapp/',include('FAQs.urls')),
+    path('contactapp/',include('contactus.urls')),
     ###For Google Oauth
     path('', TemplateView.as_view(template_name="index.html")),
     path('accounts/', include('allauth.urls')),

@@ -53,6 +53,8 @@ INSTALLED_APPS = [
     'phonenumber_field',
     'volunteer',
     'CrowdFunding',
+    'FAQs',
+    'contactus',
     
 ]
 
