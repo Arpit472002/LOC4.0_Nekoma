@@ -171,3 +171,6 @@ EMAIL_HOST_PASSWORD='cxqfedubdvprmuoj'
 FRONT_END_HOST="http://localhost:3000"
 
 CORS_ALLOW_ALL_ORIGINS: True
+
+MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
