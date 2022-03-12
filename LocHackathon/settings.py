@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'drf_yasg',
     'login_signup',
     'corsheaders',
+    'event',
     
 ]
 
@@ -170,4 +171,12 @@ EMAIL_HOST_USER='brewingcode758@gmail.com'
 EMAIL_HOST_PASSWORD='cxqfedubdvprmuoj'
 FRONT_END_HOST="http://localhost:3000"
 
-CORS_ALLOW_ALL_ORIGINS: True
+CORS_ALLOWED_ORIGINS = [
+    "https://lend-a-hand472.herokuapp.com",
+    "http://localhost:8000",
+    "http://localhost:3000",
+
+]
+
+MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
