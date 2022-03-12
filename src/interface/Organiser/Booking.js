@@ -1,13 +1,11 @@
 import Cards from "../../components/Cards";
 import { Grid, Button, Typography, Box, FilledInput } from "@mui/material";
-import { BiImageAdd } from "react-icons/bi";
 import "./Booking.css";
 import { useState } from "react";
 import { URL } from "../../utils/api";
-import { useNavigate } from "react-router-dom";
 
 export default function Booking() {
-  const navigate = useNavigate();
+
   const token = localStorage.getItem("token");
   console.log(token);
   const addIcon = {
@@ -109,7 +107,7 @@ export default function Booking() {
               lg={6}
               style={{ marginTop: "20px", marginLeft: "36px" }}
             >
-              <Typography style={{ fontSize: "30px", marginTop: "30px" }}>
+              <Typography style={{ fontSize: "30px", marginTop: "30px",color:"#002d12", fontSize:"1.8rem"}}>
                 Create An Event
               </Typography>
             </Grid>
@@ -121,7 +119,7 @@ export default function Booking() {
             >
               <Grid container direction="row" marginBottom={5}>
                 <Grid item sm={6} md={3} style={{ marginLeft: "46px" }}>
-                  <Typography>Event Name</Typography>
+                  <Typography style={{color:"#002d12", fontSize:"1.8rem"}}>Event Name</Typography>
                 </Grid>
                 <Grid item sm={6} md={3} style={{ marginLeft: "15px" }}>
                   <FilledInput
@@ -173,7 +171,7 @@ export default function Booking() {
 
               <Grid container direction="row" marginBottom={5}>
                 <Grid item sm={6} md={3} style={{ marginLeft: "46px" }}>
-                  <Typography>Event Description</Typography>
+                  <Typography style={{color:"#002d12", fontSize:"1.8rem"}}>Event Description</Typography>
                 </Grid>
                 <Grid item sm={6} md={3} style={{ marginLeft: "15px" }}>
                   <FilledInput
@@ -195,7 +193,7 @@ export default function Booking() {
 
               <Grid container direction="row" marginBottom={5}>
                 <Grid item sm={6} md={3} style={{ marginLeft: "46px" }}>
-                  <Typography>Event Venue</Typography>
+                  <Typography style={{color:"#002d12", fontSize:"1.8rem"}}>Event Venue</Typography>
                 </Grid>
                 <Grid item sm={6} md={3} style={{ marginLeft: "15px" }}>
                   <FilledInput
@@ -217,7 +215,7 @@ export default function Booking() {
 
               <Grid container direction="row" marginBottom={5}>
                 <Grid item sm={6} md={3} style={{ marginLeft: "46px" }}>
-                  <Typography>Date</Typography>
+                  <Typography style={{color:"#002d12", fontSize:"1.8rem"}}>Date</Typography>
                 </Grid>
                 <Grid item sm={6} md={3} style={{ marginLeft: "15px" }}>
                   <FilledInput
@@ -240,7 +238,7 @@ export default function Booking() {
 
               <Grid container direction="row" marginBottom={5}>
                 <Grid item sm={6} md={3} style={{ marginLeft: "46px" }}>
-                  <Typography>Time</Typography>
+                  <Typography style={{color:"#002d12", fontSize:"1.8rem"}}>Time</Typography>
                 </Grid>
                 <Grid item sm={6} md={3} style={{ marginLeft: "15px" }}>
                   <FilledInput
@@ -262,7 +260,7 @@ export default function Booking() {
 
               <Grid container direction="row" marginBottom={5}>
                 <Grid item sm={6} md={3} style={{ marginLeft: "46px" }}>
-                  <Typography>Duration (in hrs)</Typography>
+                  <Typography style={{color:"#002d12", fontSize:"1.8rem"}}>Duration (in hrs)</Typography>
                 </Grid>
                 <Grid item sm={6} md={3} style={{ marginLeft: "15px" }}>
                   <FilledInput
@@ -285,7 +283,7 @@ export default function Booking() {
 
               <Grid container direction="row" marginBottom={5}>
                 <Grid item sm={6} md={3} style={{ marginLeft: "46px" }}>
-                  <Typography>Number of Volunteers Required</Typography>
+                  <Typography style={{color:"#002d12", fontSize:"1.8rem"}}>Number of Volunteers Required</Typography>
                 </Grid>
                 <Grid item sm={6} md={3} style={{ marginLeft: "15px" }}>
                   <FilledInput

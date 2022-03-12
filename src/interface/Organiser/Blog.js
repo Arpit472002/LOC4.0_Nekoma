@@ -53,7 +53,6 @@ export default function Blog() {
         container
         display="flex"
         flexDirection="row"
-        justifyContent="flex-start"
         alignItems="center"
       >
         <div>
@@ -62,20 +61,8 @@ export default function Blog() {
             direction="column"
             justifyContent="space-evenly"
             alignItems="flex-start"
-            style={{ gap: 15 }}
+            style={{ gap: 15, paddingLeft:"400px" }}
           >
-            {/* <Grid
-              item
-              xs={12}
-              sm={12}
-              md={6}
-              lg={6}
-              style={{ marginTop: "20px", marginLeft: "36px" }}
-            >
-              <Typography style={{ fontSize: "30px", marginTop: "30px" }}>
-              Make A Blog For Any Event!
-              </Typography>
-            </Grid> */}
             <Box
               component="form"
               onSubmit={handleSubmit}
@@ -84,7 +71,7 @@ export default function Blog() {
             >
               <Grid container direction="row" marginBottom={5}>
                 <Grid item sm={6} md={3} style={{ marginLeft: "150px" }}>
-                  <Typography>Enter Title</Typography>
+                  <Typography style={{color:"#002d12", fontSize:"1.8rem"}}>Enter Title</Typography>
                 </Grid>
                 <Grid item sm={6} md={3} style={{ marginLeft: "15px" }}>
                   <FilledInput
@@ -93,7 +80,7 @@ export default function Blog() {
                     type="text"
                     name="title"
                     variant="outlined"
-                    color="primary"
+                    color="success"
                     autoComplete="title"
                     value={title}
                     fullWidth
@@ -105,7 +92,7 @@ export default function Blog() {
 
               <Grid container direction="row" marginBottom={5}>
                 <Grid item sm={6} md={3} style={{ marginLeft: "150px" }}>
-                  <Typography>Enter Blog Body</Typography>
+                  <Typography style={{color:"#002d12", fontSize:"1.8rem"}}>Enter Blog Body</Typography>
                 </Grid>
                 <Grid item sm={6} md={3} style={{ marginLeft: "15px" }}>
                   <TextField
