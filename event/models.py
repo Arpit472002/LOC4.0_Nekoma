@@ -11,3 +11,5 @@ class Event(models.Model):
     event_duration=models.IntegerField()
     no_of_volunteers=models.IntegerField()
 
+    def __str__(self):
+        return self.event_name

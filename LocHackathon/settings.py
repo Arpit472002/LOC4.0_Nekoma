@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'login_signup',
     'corsheaders',
     'event',
+    'Blog',
     
 ]
 
