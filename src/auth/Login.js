@@ -119,7 +119,7 @@ export default function Login() {
           }
         } catch (error) {
           console.log("Error" + error);
-          alert("Please enter valid credentials");
+          swal.fire("Oops!!", "Please enter valid credentials", "error");
           setLoading(false);
         }
       }
