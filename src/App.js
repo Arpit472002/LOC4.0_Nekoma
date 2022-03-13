@@ -20,6 +20,7 @@ import NavbarUser from "./components/Header/NavbarUser";
 import CrowdfundingUser from './interface/User/CrowdfundingUser';
 import CrowdfundingOrganiser from './interface/Organiser/CrowdfundingOrganiser';
 import Supplier from './scm/Supplier';
+import Faqs from './pages/Faqs';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route exact path="/" element={<><NavbarLogin/><SignupPage/></>} />
         <Route exact path="/login" element={<><NavbarLogin/><LoginPage /></>} />
          <Route path="/homeuser" element={<><NavbarUser/><Home/></>}></Route>
+         <Route path="/faqs" element={<><NavbarUser/><Faqs/></>}></Route>
         <Route exact path="/booking" element={<><NavbarOrganiser/><Booking/></>}/>
         <Route exact path="/blogs" element={<><NavbarOrganiser/><Blog/></>}/>
         <Route exact path="/volunteer" element={<><NavbarOrganiser/><Volunteer/></>}/>

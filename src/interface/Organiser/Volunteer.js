@@ -40,6 +40,9 @@ export default function Volunteer() {
         // alignItems="center"
         // justifyContent="center"
       >
+        <Typography variant="h4" textAlign="center">
+          Volunteer's Information
+        </Typography>
         <Box ml={5} mr={5} mt={3} pt={3} mb={1} pb={1}>
           <Grid
             container
@@ -68,31 +71,23 @@ export default function Volunteer() {
                         gutterBottom
                         variant="h6"
                         component="div"
-                      >Description :{" "}
-                        {post.description}
+                      >
+                        Available at : {post.available_at}
                       </Typography>
                       <Typography
                         style={{ color: "black" }}
                         gutterBottom
                         variant="h5"
                         component="div"
-                      >Reason : {" "}
-                        {post.reason} hr
+                      >
+                        Phone Number : {post.phone_number}
                         <br />
                       </Typography>
-                      <Typography>Amount:</Typography>
-                      <Typography style={{ color: "red" }}>
-                        {post.total_amount_needed}
-                      </Typography>
-                      <a
-                        href="https://rzp.io/l/1GpMHVP"
-                        target="_/blank"
-                        style={{ textDecoration: "none", fontSize:"2rem" }}
-                      >
-                        <Button size="small" color="primary">
-                          Donate    
-                        </Button>
-                      </a>
+                      <Typography>Aadhar Card:</Typography>
+                      <img
+                        src={post.aadhar_image}
+                        style={{ height: "100px", width: "200px" }}
+                      />
                     </CardContent>
                   </Card>
                 </Grid>
