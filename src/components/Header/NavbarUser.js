@@ -148,10 +148,10 @@ const Navbar = () => {
               <Link to="/crowdfundinguser">
                 <button className="btn">Crowdfunding</button>
               </Link>
-              <Link to="/volunteer">
+              <Link to="/uservolunteer">
                 <button className="btn">Volunteer</button>
               </Link>
-              <Link to="/userblogs">
+              <Link to="/userblog">
                 <button className="btn" >Blogs</button>
               </Link>
             </div>

@@ -13,6 +13,8 @@ import NavbarLogin from './components/Header/NavbarLogin';
 import NavbarOrganiser from './components/Header/NavbarOrganiser';
 import NotFound from './components/NotFound';
 import Booking from "./interface/Organiser/Booking";
+import Volunteer from "./interface/Organiser/Volunteer";
+import UserVolunteer from "./interface/User/UserVolunteer";
 import Events from "./interface/User/Events";
 import NavbarUser from "./components/Header/NavbarUser";
 import CrowdfundingUser from './interface/User/CrowdfundingUser';
@@ -28,7 +30,9 @@ function App() {
         <Route exact path="/login" element={<><NavbarLogin/><LoginPage /></>} />
          <Route path="/homeuser" element={<><NavbarUser/><Home/></>}></Route>
         <Route exact path="/booking" element={<><NavbarOrganiser/><Booking/></>}/>
-        <Route exact path="/blog" element={<><NavbarOrganiser/><Blog/></>}/>
+        <Route exact path="/blogs" element={<><NavbarOrganiser/><Blog/></>}/>
+        <Route exact path="/volunteer" element={<><NavbarOrganiser/><Volunteer/></>}/>
+        <Route exact path="/uservolunteer" element={<><NavbarUser/><UserVolunteer/></>}/>
         <Route exact path="/userblog" element={<><NavbarUser/><UserBlog/></>}/>
         <Route exact path="/crowdfundingorganiser" element={<><NavbarOrganiser/><CrowdfundingOrganiser/></>}/>
         <Route exact path="/events" element={<><NavbarUser/><Events/></>}/>

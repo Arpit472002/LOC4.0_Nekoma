@@ -122,6 +122,8 @@ export default function Blog() {
                   color: "white",
                   fontWeight: "bold",
                   fontSize: "18px",
+                  marginLeft:"155px"
+                
                 }}
               >
                 Save

@@ -109,11 +109,11 @@ export default function Login() {
           });
           result = await result.json();
           console.log(result);
-          if ((result.is_organizer = "true" && result.token)) {
+          if ((result.is_organizer === true && result.token)) {
             localStorage.setItem("token", result.token);
-            history("/crowdfundingorganiser");
+            history("/booking");
           }
-          if ((result.is_organizer = "false" && result.token)) {
+          if ((result.is_organizer === false && result.token)) {
             localStorage.setItem("token", result.token);
             localStorage.setItem("user_id", result.user_id);
             localStorage.setItem("name", result.username);
