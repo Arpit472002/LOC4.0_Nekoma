@@ -177,27 +177,9 @@ export default function CrowdfundingOrganiser() {
                 </Grid>
               </Grid>
               <Grid container direction="row" marginBottom={5}>
-                <Grid item sm={6} md={3} style={{ marginLeft: "46px" }}>
-                  <Typography>Verified Volunteer</Typography>
-                </Grid>
+                
                 <Grid item sm={6} md={3} style={{ marginLeft: "15px" }}>
-                  {/* <RadioGroup
-                    aria-labelledby="demo-controlled-radio-buttons-group"
-                    name="controlled-radio-buttons-group"
-                    value={is_selected}
-                    onChange={handleRadio}
-                  >
-                    <FormControlLabel
-                      value="accepted"
-                      control={<Radio />}
-                      label="accepted"
-                    />
-                    <FormControlLabel
-                      value="not_accepted"
-                      control={<Radio />}
-                      label="Not Accepted"
-                    />
-                  </RadioGroup> */}
+                  
                 </Grid>
               </Grid>
               <Button

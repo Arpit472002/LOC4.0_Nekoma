@@ -194,7 +194,7 @@ export default function SignupForAdmin() {
                 }
               />
             </Grid>
-            <Box sx={{ minWidth: 120 }}>
+            <Box sx={{ minWidth: 120 }} style={{paddingTop:"10px", marginleft:"80px"}}>
               <FormControl fullWidth>
                 <InputLabel id="demo-simple-select-label">Select</InputLabel>
                 <Select
