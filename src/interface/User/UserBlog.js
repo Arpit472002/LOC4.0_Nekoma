@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { URL } from "../../utils/api";
 import { Grid, Box, Typography } from "@mui/material";
 
-export default function Blog() {
+export default function UserBlog() {
   const [card, setCard] = useState([]);
   const token = localStorage.getItem("token");
   useEffect(() => {

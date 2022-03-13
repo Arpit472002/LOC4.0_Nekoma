@@ -91,7 +91,7 @@ const Navbar = () => {
             component="div"
             sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
           >
-            <BiDonateHeart style={{ fontSize: "3rem", color: "black" }} />
+            <BiDonateHeart style={{ fontSize: "5rem", color: "black" }} />
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -142,14 +142,17 @@ const Navbar = () => {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             <div style={{ margin: "auto" }}>
+            <Link to="/homeuser">
+                <button className="btn">Home</button>
+              </Link>
               <Link to="/crowdfundinguser">
                 <button className="btn">Crowdfunding</button>
               </Link>
               <Link to="/volunteer">
                 <button className="btn">Volunteer</button>
               </Link>
-              <Link to="/maps">
-                <button className="btn" >Maps</button>
+              <Link to="/userblogs">
+                <button className="btn" >Blogs</button>
               </Link>
             </div>
           </Box>
