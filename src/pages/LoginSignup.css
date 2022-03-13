@@ -1,0 +1,48 @@
+.links{
+    top:0 ;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    margin-top: 20px !important;
+    display: flex;
+    justify-items: end;
+}
+.rightt-box{
+    min-height: 90vh;
+    min-width: 35vw;
+   
+    
+}
+.leftt-box{
+    min-height: 90vh;
+    min-width: 65vw;
+    background-color:white;
+}
+
+@media screen and (min-width: 910px) and (max-width: 1285px){
+    .leftt-box{
+        min-height: 90vh;
+        min-width: 65vw;
+        background-color:white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+@media screen  and (max-width: 900px){
+    .rightt-box{
+        display: none;
+    }
+    .leftt-box{
+        justify-content: center;
+        min-width: 100vw;
+    }
+}
+@media screen and (min-width: 368px) and (max-width: 768px){
+
+    .leftt-box{
+        justify-content: center;
+        min-width: 100vh;
+    }
+    
+}

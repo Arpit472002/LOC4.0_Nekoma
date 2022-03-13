@@ -34,7 +34,7 @@ export default function Blog() {
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
-          Authorization: `token ${token}`,
+          
         },
       });
       result = await result.json();

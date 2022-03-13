@@ -13,7 +13,6 @@ export default function UserBlog() {
           method: "GET",
           headers: {
             Accept: "application/json",
-            Authorization: "Token " + token,
           },
         });
         user = await response.json();
@@ -25,7 +24,7 @@ export default function UserBlog() {
 
       setCard(user);
     })();
-  }, [token]);
+  }, []);
 
   return (
     <>
@@ -34,27 +33,15 @@ export default function UserBlog() {
           <Grid
             container
             display="flex"
-            justifyContent="center"
-            alignItems="center"
+            flexDirection="column"
+            justifyContent="flex-start"
+            alignItems="flex-start"
             key={index}
+            marginLeft="50px"
           >
-            <Box
-              component="div"
-              sx={{
-                borderRadius: "8px",
-                border: "1px solid #35386C",
-                width: 291,
-                height: 206,
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                marginLeft: "15px",
-              }}
-            >
-              <Typography>{user.title}</Typography>
-              <Typography>{user.description}</Typography>
-              <Typography>{user.postedby}</Typography>
-            </Box>
+            <Typography variant="h4">Title: {user.title}</Typography><br/>
+            <Typography variant="h5">Description: {user.description}</Typography><br/>
+            <Typography variant="h6">Posted By: {user.postedby}</Typography>
           </Grid>
         );
       })}
