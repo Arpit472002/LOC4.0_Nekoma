@@ -8,7 +8,7 @@ class SupplierView(generics.ListCreateAPIView):
     serializer_class=SupplierSerializer
     permission_classes=[IsAuthenticated]
 
-class SupplierView(generics.RetrieveUpdateDestroyAPIView):
+class SupplierDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Suppliers.objects.all()
     serializer_class=SupplierSerializer
     permission_classes=[IsAuthenticated]
@@ -18,7 +18,7 @@ class InventoryItemsView(generics.ListCreateAPIView):
     serializer_class=InventoryItemSerializer
     permission_classes=[IsAuthenticated]
 
-class InventoryItemsView(generics.RetrieveUpdateDestroyAPIView):
+class InventoryItemsDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = InventoryItems.objects.all()
     serializer_class=InventoryItemSerializer
     permission_classes=[IsAuthenticated]
@@ -28,7 +28,7 @@ class DonationView(generics.ListCreateAPIView):
     serializer_class=DonationSerializer
     permission_classes=[IsAuthenticated]
 
-class DonationView(generics.RetrieveUpdateDestroyAPIView):
+class DonationDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset=Donations.objects.all()
     serializer_class=DonationSerializer
     permission_classes=[IsAuthenticated]
@@ -39,7 +39,7 @@ class OrderView(generics.ListCreateAPIView):
     serializer_class=OrderSerializer
     permission_classes=[IsAuthenticated]
 
-class OrderView(generics.RetrieveUpdateDestroyAPIView):
+class OrderDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset=Orders.objects.all()
     serializer_class=OrderSerializer
     permission_classes=[IsAuthenticated]
