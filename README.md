@@ -1,6 +1,6 @@
 # LOC4.0_Nekoma
 <br/>
-# WishFund - 
+# WishFund - Help Others to be Happy
 <br/>
 We made a two user interface one for the event organiser and another for a simple user who can be anyone above age 15.
 <br/>
