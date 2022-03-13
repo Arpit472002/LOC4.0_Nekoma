@@ -55,7 +55,7 @@ INSTALLED_APPS = [
     'CrowdFunding',
     'FAQs',
     'contactus',
-    
+    'supplymanagement',
 ]
 
 MIDDLEWARE = [
