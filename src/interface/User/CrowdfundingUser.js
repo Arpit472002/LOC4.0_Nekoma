@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import { Grid, Box, Button } from "@mui/material";
+import { Grid, Box, Button, CardMedia } from "@mui/material";
 import { URL } from "../../utils/api";
+import img from  '../../assets/crowdfunding.svg';
 
 export default function CrowdfundingUser() {
   const [card, setCard] = useState([]);
   const token = localStorage.getItem("token");
-  console.log(token);
+  //console.log(token);
   useEffect(() => {
     (async () => {
       let posts;
@@ -52,48 +53,47 @@ export default function CrowdfundingUser() {
             {card.map((post, index) => {
               return (
                 <Grid item xs={12} sm={6} md={6} lg={6} key={index}>
-                  <Card
-                    sx={{ maxWidth: 345 }}
-                    style={{
-                      width: "50vh",
-                      backgroundColor: "#49ab9480",
-                      marginLeft: "170px",
-                    }}
-                    data-aos="fade-up"
-                    data-aos-anchor-placement="bottom-bottom"
-                  >
-                    <CardContent>
-                      <Typography
-                        style={{ color: "black" }}
-                        gutterBottom
-                        variant="h6"
-                        component="div"
-                      >Description :{" "}
-                        {post.description}
-                      </Typography>
-                      <Typography
-                        style={{ color: "black" }}
-                        gutterBottom
-                        variant="h5"
-                        component="div"
-                      >Reason : {" "}
-                        {post.reason} hr
-                        <br />
-                      </Typography>
-                      <Typography>Amount:</Typography>
-                      <Typography style={{ color: "red" }}>
-                        {post.total_amount_needed}
-                      </Typography>
-                      <a
-                        href="https://rzp.io/l/1GpMHVP"
-                        target="_/blank"
-                        style={{ textDecoration: "none", fontSize:"2rem" }}
+                  <Card sx={{ display: "flex", width: "40vw" }}>
+                    <CardMedia
+                      component="img"
+                      sx={{ width: 40 }}
+                      image="https://upload.wikimedia.org/wikipedia/commons/4/49/A_black_image.jpg"
+                      alt="black"
+                    />
+                    <Box
+                      sx={{
+                        display: "flex",
+                        flexDirection: "row",
+                        justifyContent: "space-evenly",
+                        width: "40vw",
+                      }}
+                    >
+                      <CardContent sx={{ flex: "1 0 auto" }}>
+                        <Typography>{post.description}</Typography>
+                        <Typography>{post.reason}</Typography>
+                        <Typography>{post.amt}</Typography>
+                      </CardContent>
+                      <Box
+                        sx={{
+                          display: "flex",
+                          alignItems: "center",
+                          pl: 1,
+                          pb: 1,
+                          marginRight:"80px"
+                        }}
                       >
-                        <Button size="small" color="primary">
-                          Donate    
-                        </Button>
-                      </a>
-                    </CardContent>
+                        <a
+                          href="https://rzp.io/l/1GpMHVP"
+                          target="_/blank"
+                          style={{ textDecoration: "none", fontSize: "2rem" }}
+                        >
+                          <Button size="large" color="primary">
+                            Donate
+                          </Button>
+                        </a>
+                      </Box>
+                    </Box>
+                    <img src={img} alt="hello" width="140px" height="140px" marginRight="40px"/>
                   </Card>
                 </Grid>
               );
@@ -103,4 +103,19 @@ export default function CrowdfundingUser() {
       </Grid>
     </>
   );
+}
+{
+  /* <a
+href="https://rzp.io/l/1GpMHVP"
+target="_/blank"
+style={{ textDecoration: "none", fontSize:"2rem" }}
+>
+<Button size="small" color="primary">
+  Donate    
+</Button>
+</a> 
+desc
+reason
+amt
+*/
 }
